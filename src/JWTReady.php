@@ -6,7 +6,7 @@ use Dusta\JWTReady\Data\Collection;
 use Dusta\JWTReady\Exception\AuthorizationHeaderException;
 
 /**
- * Class JWT
+ * Class JWTReady
  *
  * @author Sławomir Kaleta <slaszka@gmail.com>
  */
