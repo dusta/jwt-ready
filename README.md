@@ -8,16 +8,16 @@ Simple Firebase\JWT wrapper
 use Dusta\JWTReady\JWTReady;
 
 require_once __DIR__ . '/../vendor/autoload.php'; 
-$JWT = new JWTReady(['key' => 'YOUR-SECRET-KEY']);
+$JWTReady = new JWTReady(['key' => 'YOUR-SECRET-KEY']);
 
 // Return string
-$jwt = $JWT->generate(['key' => 'value']);
+$jwt = $JWTReady->generate(['key' => 'value']);
 // return eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJrZXkiOm51bGwsImlhdCI6bnVsbC.....
 
-$check = $JWT->checkJWT($jwt);
+$check = $JWTReady->checkJWT($jwt);
 // return ['jwt' => 'eyJ0eXAiOiJKV1QiLCJhbG....', 'payload' => [...]]
 
-$decoded = $JWT->decode($jwt);
+$decoded = $JWTReady->decode($jwt);
 // return ['key' => 'value']
 ```
 
