@@ -121,20 +121,23 @@ class JWTReady
         return $this->iat + $this->Collection->get('extendAfter', 60 * 60) < \time();
     }
 
-
     /**
+     * @param null $token
+     *
      * @return Collection
      */
-    public function checkJWT()
+    public function checkJWT($bearerToken = null)
     {
         $return = [];
 
-        $getBearerToken = $this->getBearerToken();
-        if ($getBearerToken === null) {
-            throw new AuthorizationHeaderException;
+        if ($bearerToken === null) {
+            $bearerToken = $this->getBearerToken();
+            if ($bearerToken === null) {
+                throw new AuthorizationHeaderException;
+            }
         }
 
-        $decodedJWT = $this->decode($getBearerToken);
+        $decodedJWT = $this->decode($bearerToken);
         if ($decodedJWT === null) {
             $return['error'] = 401;
 
@@ -156,7 +159,6 @@ class JWTReady
 
         return new Collection($return);
     }
-
 
     /**
      * @param $token
@@ -202,7 +204,7 @@ class JWTReady
 
     /**
      * Get access token from header
-     * */
+     */
     public function getBearerToken()
     {
         $headers = $this->getAuthorizationHeader();
