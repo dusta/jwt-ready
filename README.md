@@ -14,6 +14,7 @@ $JWTReady = new JWTReady(['key' => 'YOUR-SECRET-KEY']);
 $jwt = $JWTReady->generate(['key' => 'value']);
 // return eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJrZXkiOm51bGwsImlhdCI6bnVsbC.....
 
+// if empty check headers Bearer/s
 $check = $JWTReady->checkJWT($jwt);
 // return ['jwt' => 'eyJ0eXAiOiJKV1QiLCJhbG....', 'payload' => [...]]
 
