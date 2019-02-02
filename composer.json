@@ -1,0 +1,23 @@
+{
+    "name": "dusta/jwt-ready",
+    "description": "Module jwt",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Slawomir Kaleta",
+            "email": "slaszka@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Dusta\\JWTReady\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "ext-openssl": "*",
+        "firebase/php-jwt": "^5.0"
+    }
+}
